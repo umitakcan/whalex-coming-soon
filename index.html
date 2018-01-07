@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WhaleX</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,800" rel="stylesheet">
+    <script>document.documentElement.className = 'js';</script>
+  </head>
+  <body class="demo-5 loading">
+    <main class="site-wrapper">
+      <div class="content">
+        <div class="content--fixed">
+          <div class="header">
+            <a href="index.html">
+              <img class="whalex-logo"  src="img/whalex-logo.svg"/>
+            </a>
+            <a class="link" href="mailto:contact@whalex.com" target="_top">Contact</a>
+          </div>
+          <div class="content-wrapper">
+            <h1>We are about to open soon.
+              <br/>Subscribe to stay tuned.    
+            </h1>
+            <p>WhaleX redefines investment platform in the crypto-world 
+              by adopting highly open, extensible technologies and social interaction.
+            </p>
+            <p>
+              WhaleX leverages social interaction which allows individuals to share their status 
+              or outcome of diversified investment positions so that anyone can benefit from collective 
+              wisdom by learning from, interacting with, and even automatically copying others in real-time.
+            </p>
+            <form>
+                <input type="text" id="email" name="email" value="Email">
+              <input type="submit" value="Submit">
+              </form>
+          </div>
+        </div>
+      </div>
+
+
+        <div class="content">
+          <div class="slide-wrapper">
+              <div class="slide-item">
+                  <img src="img/15.jpg" class="slide-item__image">
+              </div>		
+          </div>
+        </div>
+    </main>
+    <script src="js/demo.js"></script>
+    <script src="js/pixi.min.js"></script>
+    <script src="js/TweenMax.min.js"></script>
+    <script src="js/main5.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script>
+        imagesLoaded(document.body, () => document.body.classList.remove('loading'));
+
+        var spriteImages = document.querySelectorAll( '.slide-item__image' );
+        var spriteImagesSrc = [];
+        var texts = [];
+
+        for ( var i = 0; i < spriteImages.length; i++ ) {
+            var img = spriteImages[i];
+            // Set the texts you want to display to each slide 
+            // in a sibling element of your image and edit accordingly
+            if ( img.nextElementSibling ) {
+                texts.push(img.nextElementSibling.innerHTML);
+            } else {
+                texts.push('');
+            }
+            spriteImagesSrc.push( img.getAttribute('src' ) );
+        }
+
+        var initCanvasSlideshow = new CanvasSlideshow({
+            sprites: spriteImagesSrc,
+            displacementImage: 'img/dmaps/2048x2048/clouds.jpg',
+            autoPlay: true,
+            autoPlaySpeed: [4, 3],
+            displaceScale: [5000, 10000],
+            interactive: true,
+            interactionEvent: 'click', // 'click', 'hover', 'both' 
+            displaceAutoFit: false,
+            dispatchPointerOver: true // restarts pointerover event after click 
+        });
+    </script>
+  </body>
+</html>
